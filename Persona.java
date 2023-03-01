@@ -1,4 +1,5 @@
-public class Persona {//crear clase con los atributos nombre, email y edad
+public class Persona {
+    //crear clase con los atributos nombre, email y edad
     private String nombre;
     private String email;
     private int edad;
@@ -25,6 +26,7 @@ public class Persona {//crear clase con los atributos nombre, email y edad
     public void setEdad(int edad) {//metodo setEdad
         this.edad = edad;
     }
+    //sobreescribir metodo toString usando String.format
     @Override
     public String toString() {//metodo toString
         return String.format("Nombre: %s, Email: %s, Edad: %d", getNombre(), getEmail(), getEdad());
