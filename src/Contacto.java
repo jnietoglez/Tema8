@@ -1,6 +1,5 @@
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.*;
+
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "className")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Familiar.class, name = "Familiar"),
@@ -11,6 +10,8 @@ public class Contacto {
     private String email;
     private int telefono;
     //constructor
+    public Contacto() {
+    }
     public Contacto(String nombre, String email, int telefono) {
         this.nombre = nombre;
         this.email = email;
@@ -33,6 +34,11 @@ public class Contacto {
         return telefono;
     }
     public void setTelefono(int telefono) {
+        //para probar que funciona la excepción al deserializar ya que usa los setters
+        //lanzar excepción si el teléfono es 988111111
+        //if (telefono == 988111111) {
+        // throw new IllegalArgumentException("El teléfono no puede ser 988111111");
+        //}
         this.telefono = telefono;
     }
     //sobreescribimos el método toString
