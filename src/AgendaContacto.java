@@ -1,10 +1,21 @@
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 
 public class AgendaContacto {
     private ArrayList<Contacto> agenda;
     //constructor
+    @JsonCreator
+    public AgendaContacto(@JsonProperty("agenda") ArrayList<Contacto> agenda) {
+        this.agenda = agenda;
+    }
     public AgendaContacto() {
         agenda = new ArrayList<>();
+    }
+    //getters y setters
+    public int getNum() {
+        return agenda.size();
     }
     //inserta contacto
     public void insertarContacto(Contacto contacto){

@@ -1,3 +1,11 @@
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "className")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Familiar.class, name = "Familiar"),
+        @JsonSubTypes.Type(value = Instagram.class, name = "Instagram")
+})
 public class Contacto {
     private String nombre;
     private String email;

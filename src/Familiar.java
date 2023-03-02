@@ -24,7 +24,7 @@ public class Familiar extends Contacto{
     //toString
     @Override
     public String toString() {
-        return super.toString() + ", fecha=" + fecha;
+        return super.toString() + ", fecha=" + fecha + ", tipoFamiliar=" + tipoFamiliar;
     }
 
 }
