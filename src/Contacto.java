@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.*;
         @JsonSubTypes.Type(value = Familiar.class, name = "Familiar"),
         @JsonSubTypes.Type(value = Instagram.class, name = "Instagram")
 })
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Contacto {
     private String nombre;
     private String email;

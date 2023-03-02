@@ -1,27 +1,31 @@
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 import java.util.ArrayList;
 //para que ignore los atributos que no estén en la clase como getNum ya que al ser un getter...
 //también podríamos poner @JsonIgnoreProperties({"num"}) en vez de @JsonIgnore
 @JsonIgnoreProperties(ignoreUnknown = true)
+//queremos que serialice los atributos de la clase independientemente de su visibilidad (private, public, protected)
+//podríamos poner @JsonProperty("agenda") antes del campo
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class AgendaContacto {
     //como no hay un getter para agenda tenemos que poner @JsonProperty("agenda")
-    @JsonProperty("agenda")
+    //@JsonProperty("agenda")
     private ArrayList<Contacto> agenda;
     //constructor
 
     //indicamos que serialice agenda usando el constructor de la clase
-    @JsonCreator
+   /* @JsonCreator
     public AgendaContacto(@JsonProperty("agenda") ArrayList<Contacto> agenda) {
         this.agenda = agenda;
     }
 
-
     public AgendaContacto() {
         agenda = new ArrayList<>();
+    }
+
+    */
+    public AgendaContacto() {
+        this.agenda = new ArrayList<>();
     }
     //getters y setters
     //indicamos que no queremos que se serialice  num -en nuestro caso no es un atributo de la clase-

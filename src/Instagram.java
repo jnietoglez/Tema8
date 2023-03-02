@@ -1,7 +1,7 @@
 public class Instagram extends Contacto{
     private String usuario;
     //constructor
-    public Instagram() {
+   public Instagram() {
         super();
     }
     public Instagram(String nombre, String email, int telefono, String usuario) {
