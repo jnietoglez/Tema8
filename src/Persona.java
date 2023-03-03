@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 public class Persona {
     //crear clase con los atributos nombre, email y edad
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+
     private String nombre;
 
     private String email;

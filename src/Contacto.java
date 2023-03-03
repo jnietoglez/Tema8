@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.*;
 })
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Contacto {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String nombre;
     private String email;
     private int telefono;
