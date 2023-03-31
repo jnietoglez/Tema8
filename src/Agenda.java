@@ -110,7 +110,7 @@ public class Agenda {//Crear un vector de Personas llamado agenda y un atributo 
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
         try {
             //convertir el objeto agenda a un String en formato JSON
-            String json = objectMapper.writeValueAsString(agenda);
+            String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(agenda);
             System.out.println(json);
             //crear una persona desde el objeto json String
             Agenda agenda2 = objectMapper.readValue(json, Agenda.class);

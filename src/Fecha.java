@@ -2,9 +2,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Fecha {
-    int dia;
-    int mes;
-    int anho;
+    private int dia;
+    private int mes;
+    private int anho;
     //constructor por defecto
     public Fecha() {
     }

@@ -1,20 +1,21 @@
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Persona {
-    //crear clase con los atributos nombre, email y edad
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonIgnore
     private String nombre;
-
     private String email;
-
     private int edad;
-    public Persona() {//constructor
+    //constructor por defecto
+    public Persona() {
     }
+
+
+
     public Persona(String nombre, String email, int edad) {//constructor
         this.nombre = nombre;
         this.email = email;
@@ -32,13 +33,16 @@ public class Persona {
     public void setEmail(String email) {//metodo setEmail
         this.email = email;
     }
+    public void setEdad(int edad) {
+        //metodo setEdad
+        this.edad = edad;
+    }
     public int getEdad() {//metodo getEdad
         return edad;
     }
 
-    public void setEdad(int edad) {//metodo setEdad
-        this.edad = edad;
-    }
+
+
     //sobreescribir metodo toString usando String.format
     @Override
     public String toString() {//metodo toString
@@ -47,6 +51,8 @@ public class Persona {
     public static void main(String[] args) {
         //crear un objectMapper de jackson
         ObjectMapper objectMapper = new ObjectMapper();
+
+        objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         //crear un objeto de la clase Persona
         Persona persona = new Persona("Pepe Perez", "pepe@gmail.com", 25);
         try {

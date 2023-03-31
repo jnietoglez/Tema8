@@ -8,7 +8,7 @@ import java.util.ArrayList;
 //también podríamos poner @JsonIgnoreProperties({"num"}) en vez de @JsonIgnore
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AgendaContacto {
-    //como no hay un getter para agenda tenemos que poner @JsonProperty("agenda")
+    //como no hay un getter para agenda tenemos que usar @JsonProperty("agenda")
     @JsonProperty("agenda")
     private ArrayList<Contacto> agenda;
     //constructor
